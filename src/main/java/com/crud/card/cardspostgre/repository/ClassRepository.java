@@ -17,7 +17,7 @@ public class ClassRepository implements ICardRepository {
         return JdbcTemplate.query(SQL,BeanPropertyRowMapper.newInstance(Card.class));
     }
 
-    @Override
+    @Override //dgdfg
     public int save(Card card) {
         String SQL = "INSERT INTO cards VALUES(?,?,?,?,?)";
         return JdbcTemplate.update(SQL, new Object[]{card.getName(), card.getNumber(), card.getType(), card.getCvv(), card.getStatus()});
