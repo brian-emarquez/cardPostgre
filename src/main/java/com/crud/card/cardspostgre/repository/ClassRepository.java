@@ -17,19 +17,21 @@ public class ClassRepository implements ICardRepository {
         return JdbcTemplate.query(SQL,BeanPropertyRowMapper.newInstance(Card.class));
     }
 
-    @Override //dgdfg
+    @Override
     public int save(Card card) {
         String SQL = "INSERT INTO cards VALUES(?,?,?,?,?)";
         return JdbcTemplate.update(SQL, new Object[]{card.getName(), card.getNumber(), card.getType(), card.getCvv(), card.getStatus()});
     }
 
     @Override
-    public int updateById(int id) {
-        return 0;
+    public int update(Card card) {
+        String SQL = "UPDATE cards SET name=?, number=?, type=?, cvv=? WHERE id_card = ?";
+        return JdbcTemplate.update(SQL, new Object[]{card.getName(), card.getNumber(), card.getType(), card.getCvv(), card.getId_card()});
     }
 
     @Override
-    public int deleteById(Card card) {
-        return 0;
+    public int deleteById(int id) {
+        String SQL = "UPDATE cards SET status= 0 WHERE id_card = ?";
+        return JdbcTemplate.update(SQL, new Object[]{id});
     }
 }

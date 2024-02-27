@@ -6,6 +6,6 @@ import java.util.List;
 public interface ICardRepository {
     public List<Card> findAll();
     public int save (Card card);
-    public int updateById (int id);
-    public int deleteById (Card card);
+    public int update (Card card);
+    public int deleteById (int id);
 }
