@@ -7,6 +7,5 @@ public interface ICardRepository {
     public List<Card> findAll();
     public int save (Card card);
     public int updateById (int id);
-    public int delete (Card card);
-
+    public int deleteById (Card card);
 }
